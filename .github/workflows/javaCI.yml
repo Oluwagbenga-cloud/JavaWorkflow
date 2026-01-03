@@ -9,7 +9,7 @@ jobs:
         permissions: read-all
         steps:
             - uses: actions/checkout@v4
-            - name: set up JDK 11
+            - name: set up JDK 21
               uses: actions/setup-java@v4
               with:
                   java-version: "17"
@@ -23,5 +23,3 @@ jobs:
               run: chmod +x ./gradlew
             - name: build with gradle
               run: ./gradlew build
-
-
