@@ -65,3 +65,26 @@ task dockerPush(type: Exec, dependsOn: dockerBuilld,) {
     }
     commandLine "docker", "push", "$dockerRepoUrl/${project.name}:$versionApp"
 }
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = 'com.example'
+            artifactId = 'student-docker-compose'
+            version = '1.0.0'
+        }
+    }
+
+    repositories {
+        maven {
+            name = "local"
+            url = uri("${buildDir}/repo")
+        }
+    }
+}
