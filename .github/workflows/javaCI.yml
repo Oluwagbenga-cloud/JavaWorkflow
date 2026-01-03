@@ -53,6 +53,7 @@ jobs:
     
     - name: Verify versions
       run: |
+        chmod +x gradlew
         ./gradlew --version
         java --version
 
